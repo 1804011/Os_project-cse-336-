@@ -1,0 +1,8 @@
+Enter The number Of Processes: 3
+Enter Time Quantum: 2
+Enter Arrival Time of P1: 6
+Enter Burst Time of P1: 3
+Enter Arrival Time of P2: 9
+Enter Burst Time of P2: 4
+Enter Arrival Time of P3: 2
+Enter Burst Time of P3: 1
