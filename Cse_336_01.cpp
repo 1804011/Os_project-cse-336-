@@ -168,6 +168,7 @@ vector<process>vct;
         if(flag==0&&t){
             cout<<0<<" "<<"idle ";
             idle+=t;
+            flag=1;
         }
         else if(t)
             {cout<<"idle "<<t<<" ";
