@@ -166,7 +166,7 @@ vector<process>vct;
         Q.push_front(vct[taken]);
         ll t=vct[taken].arrival;
         if(flag==0&&t){
-            cout<<0<<" "<<"idle "<<t<<" ";
+            cout<<0<<" "<<"idle ";
             idle+=t;
             flag=1;
         }
@@ -745,9 +745,8 @@ vector<process>vct;
         tq=timeQuantum(Q);
         ll t=vct[taken].arrival;
         if(flag==0&&t){
-            cout<<0<<" "<<"idle "<<t<<" ";
+            cout<<0<<" "<<"idle ";
             idle+=t;
-            flag=1;
         }
         else if(t)
             {cout<<"idle "<<t<<" ";
