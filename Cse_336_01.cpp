@@ -71,24 +71,21 @@ void takeInput(){
  }
 }
 ll timeQuantum(deque<process>Q){
-    map<ll,ll>mp;
-    ll total=0,burst=0;
-    while(!Q.empty()){
-       process u=Q.front();
-       ll burst=u.burst;
-       if(mp.find(burst)==mp.end()) mp[burst]=1;
-       else mp[burst]++;
-       Q.pop_front(); 
-    }
-    for(auto itr=mp.begin();itr!=mp.end();itr++){
-        ll fst=itr->first;
-        ll scd=itr->second;
-        total+=fst*scd;
-        burst+=fst;
-    }
-    ll tq=total/burst;
-    if(tq>0) return tq;
-    else return 1;
+     float total=0,uniqueTotal=0;
+     set<ll>st;
+     ll sz=Q.size();
+     while(!Q.empty()){
+        process u=Q.front();
+        ll burst=u.burst;
+        total+=burst;
+        if(st.find(burst)==st.end())
+        uniqueTotal+=burst;
+        st.insert(burst);
+        Q.pop_front();
+     }
+     ll tq=sqrt(total*uniqueTotal/(sz*st.size()));
+     return ceil(tq);
+
 }
 void makeChoice(){
      ll choice;
@@ -283,7 +280,7 @@ ll response[500],i,u,v,w,n,taken=-1,current=0,finish[500],arrival[500],burst[500
              }
 
              if(flag==0&&t){
-                cout<<0<<" idle ";
+                cout<<0<<" idle "<<t<<" ";
                 idle+=t;
              }
              else if(t)
@@ -429,7 +426,7 @@ void preemptivePriority(){
              }
 
              if(flag==0&&t){
-                cout<<0<<" idle ";
+                cout<<0<<" idle "<<t<<" ";
                 idle+=t;
              }
              else if(t)
@@ -543,7 +540,7 @@ priority_queue<job>Q;
              }
 
              if(flag==0&&t){
-                cout<<0<<" idle ";
+                cout<<0<<" idle "<<t<<" ";
                 idle+=t;
              }
              else if(t)
@@ -630,7 +627,7 @@ void preemptiveSJF(){
              }
 
              if(flag==0&&t){
-                cout<<0<<" idle ";
+                cout<<0<<" idle "<<t<<" ";
                 idle+=t;
              }
              else if(t)
